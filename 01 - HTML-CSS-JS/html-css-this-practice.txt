@@ -1,0 +1,7 @@
+sesi 5 ch yt dea afrizal
+
+TUGAS
+
+1.tambahkan role baru.
+2.tampilkan sesuatu yang beda di setiap dashboard role-nya.
+3.bikin register / MENU pendaptaran jadi hanya user yang terdaptar yang ada di storage yang bisa login.

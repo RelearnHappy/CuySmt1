@@ -1,0 +1,151 @@
+<html>
+
+<head></head>
+<style>
+    #root {
+        background-color: tomato;
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        height: 100vh;
+    }
+</style>
+
+<body>
+    <!-- ini konten kita -->
+    <div id="root">
+        <div>
+            TUGAS SESI HTML CSS DAN JAVASCRIPT
+        </div>
+        <input type="text" placeholder="username" id="usernameInput" />
+        <input type="password" placeholder="password" id="passwordInput" />
+        <button onclick="onLogin()" id="loginButton">LOGIN</button>
+        <button onclick="onLogout()" id="logoutButton">LOGOUT</button>
+        <button onclick="register()" id="registButton">REGISTER</button>
+        <br />
+        <!-- role1 -->
+        <div id="captain">
+            <h1 id="captain">LOGIN SEBAGAI CAPTAIN</h1>
+        </div>
+        <!-- role2 -->
+        <div id="pemain">
+            <h1 id="pemain">LOGIN SEBAGAI PEMAIN</h1>
+        </div>
+        <div id="register" class="registerForm">
+            <input type="text" placeholder="username" id="usernameReg" />
+            <input type="password" placeholder="password" id="passwordReg" />
+            <button id="daftarCaptain" onclick="onDaftarCaptain()">DAFTAR CAPTAIN</button>
+            <button id="daftarPemain" onclick="onDaftarPemain()">DAFTAR PEMAIN</button>
+        </div>
+    </div>
+
+    <script type="application/javascript">
+
+        let usernameInput = document.getElementById('usernameInput');
+        let passwordInput = document.getElementById('passwordInput');
+        let captain = document.getElementById('captain');
+        let pemain = document.getElementById('pemain');
+        let loginButton = document.getElementById('loginButton');
+        let logoutButton = document.getElementById('logoutButton');
+        let registButton = document.getElementById('registButton');
+        let usernameReg = document.getElementById('usernameReg');
+        let passwordReg = document.getElementById('passwordReg');
+        let daftarCaptain = document.getElementById('daftarcaptain');
+        let daftarPemain = document.getElementById('daftarPemain');
+
+        captain.style.display = "none";
+        pemain.style.display = "none";
+        logoutButton.style.display = "none";
+        daftarCaptain.style.display = "none";
+        daftarPemain.style.display = "none";
+        usernameReg.style.display = "none";
+        passwordReg.style.display = "none";
+
+
+        function register() {
+            daftarCaptain.style.display = "block";
+            daftarPemain.style.display = "block";
+            usernameReg.style.display = "block";
+            passwordReg.style.display = "block";
+            usernameInput.style.display = "none";
+            passwordInput.style.display = "none";
+            loginButton.style.display = "none";
+            registButton.style.display = "none";
+        }
+
+        function onDaftarCaptain() {
+            alert('Anda Telah Terdaftar Sebagai Captain');
+            localStorage.setItem("username", usernameReg.value);
+            localStorage.setItem("role", "captain");
+            logoutButton.style.display = "none";
+            daftarCaptain.style.display = "none";
+            daftarPemain.style.display = "none";
+            usernameReg.style.display = "none";
+            passwordReg.style.display = "none";
+            usernameInput.style.display = "block";
+            passwordInput.style.display = "block";
+            loginButton.style.display = "block";
+            registButton.style.display = "block";
+        }
+
+        function onDaftarPemain() {
+            alert('Anda Telah Terdaftar Sebagai Pemain');
+            localStorage.setItem("username", usernameReg.value);
+            localStorage.setItem("role", "pemain");
+            logoutButton.style.display = "none";
+            daftarCaptain.style.display = "none";
+            daftarPemain.style.display = "none";
+            usernameReg.style.display = "none";
+            passwordReg.style.display = "none";
+            usernameInput.style.display = "block";
+            passwordInput.style.display = "block";
+            loginButton.style.display = "block";
+            registButton.style.display = "block";
+        }
+
+        function onLogin() {
+            // localStorage.setItem("username", usernameReg.value);
+            logoutButton.style.display = "block"
+
+            if (usernameInput.value == usernameReg.value && passwordInput.value == passwordReg.value && localStorage.getItem('role') == "captain") {
+                captain.style.display = "block"
+                pemain.style.display = "none"
+                usernameInput.style.display = "none";
+                passwordInput.style.display = "none";
+                loginButton.style.display = "none";
+                registButton.style.display = "none";
+            } else if (usernameInput.value == usernameReg.value && passwordInput.value == passwordReg.value && localStorage.getItem('role') == "pemain") {
+                pemain.style.display = "block"
+                captain.style.display = "none"
+                usernameInput.style.display = "none";
+                passwordInput.style.display = "none";
+                loginButton.style.display = "none";
+                registButton.style.display = "none";
+            } else {
+                alert('Maaf, Mungkin anda belum terdaftar');
+                location.reload();
+            }
+        }
+
+        if (localStorage.getItem('username')) {
+            loginButton.style.display = "none";
+            logoutButton.style.display = "block";
+
+            if (localStorage.getItem('role') == "captain") {
+                captain.style.display = "block";
+                pemain.style.display = "none";
+            } else if (localStorage.getItem('role') == "pemain") {
+                pemain.style.display = "block";
+                captain.style.display = "none";
+            }
+        }
+
+        //fungsi logout
+        function onLogout() {
+            localStorage.clear();
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>
