@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet"/>
+    <title>HTML CSS JS DARKMODE</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <a onclick="reRender()" id="home">HOME</a>
+                <a onclick="darkMode()" id="mode">MODE - LIGHT</a>
+                <a onclick="statusMode()" id="modekangen">MODE - KANGEN</a>
+            </nav>
+            <h1>SESI HTML CSS JS DARKMODE</h1>
+            <p class="info" id="info"></p>
+        </div>
+
+    <!-- initializing function script -->
+        <script>
+            let body = document.body;
+            let info = document.getElementById("info");
+            let mode = document.getElementById("mode");
+            let modekangen = document.getElementById("mode");
+            let home = document.getElementById("home");
+
+            const darkLimit = 5;
+            let darkCounter = 0;
+            let darkRemainingLeft;
+
+            function statusMode(){
+                body.classList.toggle("kangen")
+                info.textContent = "SEDANG BERADA DI MODE KANGEN"
+                home.textContent = "Restart"
+                return;
+                }
+                    
+            function darkMode() {
+                if(darkRemainingLeft == 1){
+                    info.textContent = "JATAH DARKMODE ANDA SUDAH HABIS"
+                    mode.style.display = "none";
+                    home.textContent = "Restart"
+                    return;
+                }
+
+                darkCounter +=1
+                if(darkCounter % 2 == 1){
+                    mode.textContent = "MODE - DARK"
+                } else {
+                    mode.textContent = "MODE - LIGHT"
+                }
+                darkRemainingLeft = darkLimit - darkCounter;
+
+                //render to info element
+                info.textContent = `Darkmode dipakai ${darkCounter}x, tersisa ${darkRemainingLeft}`
+
+                body.classList.toggle("dark");
+            }
+
+            function reRender() {
+                location.reload();
+            }
+        </script>
+    </body>
+</html>

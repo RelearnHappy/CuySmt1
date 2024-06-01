@@ -1,0 +1,5 @@
+tugas:
+
+1. tulisan mode di ganti jadi mode-dark / mode-light(DONE)
+2. tambahkan nav mode lain (mode xxx dan mode xxx dan mode xxx)
+(DONE)
