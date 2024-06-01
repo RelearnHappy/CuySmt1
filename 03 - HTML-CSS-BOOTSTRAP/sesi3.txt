@@ -1,0 +1,8 @@
+#memasukan cdn bootstrap
+di bawah title
+script js di bawah sebelum penutup / sles body
+
+#component
+container
+card
+corausel
