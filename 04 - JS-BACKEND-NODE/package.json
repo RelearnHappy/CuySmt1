@@ -1,0 +1,19 @@
+{
+  "name": "04---html-css-",
+  "version": "1.0.0",
+  "description": "backend praktek",
+  "main": "index.js",
+  "scripts": {
+    "nyala": "nodemon index.js"
+  },
+  "keywords": [
+    "bdfabtbat"
+  ],
+  "author": "azidinsuryadi",
+  "license": "ISC",
+  "dependencies": {
+    "format": "^0.2.2",
+    "nodemon": "^3.1.0",
+    "rupiah-format": "^1.0.0"
+  }
+}
