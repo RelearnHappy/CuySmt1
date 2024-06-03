@@ -1,0 +1,2 @@
+1. tambahkan tombol untuk reset ke bacground color semula
+2. ubah title pilih warna saat cirle black di klik
